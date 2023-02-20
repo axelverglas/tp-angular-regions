@@ -13,8 +13,6 @@ export class DepartementListComponent {
 
   onClickDepartement(code: string, name: string): void
   {
-    console.log(code)
-    console.log(name)
     this.sendDepartementCode.emit({code: code, name: name})
 
   }

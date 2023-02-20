@@ -12,10 +12,10 @@ import { apiService } from 'src/app/services/api.service';
 export class RegionsComponent {
   public activePage!: string
   public Departements!: DepModel[];
-  showDepartements = false;
-  loading = false;
-  error = false;
-  showCities = false;
+  public error: boolean;
+  public showDepartements: boolean;
+  public loading: boolean;
+  public showCities: boolean;
   public regionName: string
   public Cities!: CityModel[];
 
@@ -24,21 +24,20 @@ export class RegionsComponent {
     this.Departements = []
     this.regionName = ''
     this.Cities = []
+    this.error = false
+    this.showDepartements = false
+    this.showCities = false
+    this.loading = false
   }
 
   getClickedRegionCode(regionData: any){
-    console.log(regionData.code)
-    console.log(regionData.name)
     this.getDepartements(regionData.code)
     this.showDepartements = true;
     this.loading = true;
     this.regionName = regionData.name
-    this.showCities = false;
   }
 
   getClickedDepartementCode(departementData: any) {
-    console.log(departementData.code)
-    console.log(departementData.name)
     this.getCities(departementData.code)
     this.showCities = true;
     this.loading = true;
@@ -54,13 +53,12 @@ export class RegionsComponent {
         })
         this.showCities = true;
         this.error = false;
-        this.toaster.success('Success', 'Cities loaded successfully');
-        console.log(this.Cities)
+        this.toaster.success('Données récupérées avec succès');
       },
       (error) => {
         this.loading = false;
         this.error = true;
-        this.toaster.error('Error', 'Error loading cities');
+        this.toaster.error('Erreur lors du chargement des données');
       }
     );
   }
@@ -78,13 +76,12 @@ export class RegionsComponent {
         })
         this.showDepartements = true;
         this.error = false;
-        this.toaster.success('Success', 'Departements loaded successfully');
-        console.log(this.Departements)
+        this.toaster.success('Données récupérées avec succès');
       },
       (error) => {
         this.loading = false;
         this.error = true;
-        this.toaster.error('Error', 'Error loading departements');
+        this.toaster.error('Erreur lors du chargement des données');
       }
     );
   }

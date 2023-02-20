@@ -10,8 +10,6 @@ export class FranceMapComponent {
 
   onClickRegion(code: string, name: string): void
   {
-    console.log(code)
-    console.log(name)
     this.sendRegionCode.emit({code: code, name: name})
 
   }
