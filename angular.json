@@ -1,0 +1,134 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "regions-france": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/regions-france",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/sass/styles.scss",
+              "src/sass/custom-styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules/bootstrap/scss",
+                "./node_modules/bootstrap/scss/forms",
+                "./node_modules/bootstrap/scss/helpers",
+                "./node_modules/bootstrap/scss/mixins",
+                "./node_modules/bootstrap/scss/utilities",
+                "./node_modules/bootstrap/scss/vendor"
+              ]
+            },
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "regions-france:build:production"
+            },
+            "development": {
+              "browserTarget": "regions-france:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "regions-france:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/sass/styles.scss",
+              "src/sass/custom-styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules/bootstrap/scss",
+                "./node_modules/bootstrap/scss/forms",
+                "./node_modules/bootstrap/scss/helpers",
+                "./node_modules/bootstrap/scss/mixins",
+                "./node_modules/bootstrap/scss/utilities",
+                "./node_modules/bootstrap/scss/vendor"
+              ]
+            },
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

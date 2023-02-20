@@ -1,0 +1,16 @@
+<table class="mt-5 table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Code</th>
+            <th>Code Region</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let departement of data" (click)="onClickDepartement(departement.code, departement.nom)">
+            <td>{{departement.nom}}</td>
+            <td>{{departement.code}}</td>
+            <td>{{departement.codeRegion}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,45 @@
+<header>
+
+  <!-- This div is  intentionally blank. It creates the transparent black overlay over the video which you can modify in the CSS -->
+  <div class="overlay"></div>
+
+  <!-- The HTML5 video element that will create the background video on the header -->
+  <video
+    class="mt-4"
+    oncanplay="this.play()"
+    onloadedmetadata="this.muted = true"
+    playsinline
+    autoplay
+    muted
+    loop>
+    <source src="https://static.videezy.com/system/resources/previews/000/044/979/original/200306_04_Abstract_sphere_French_flag_on_black_isolated.mp4" type="video/mp4">
+    <source src="./assets/img/v1.mp4" type="video/mp4">
+  </video>
+
+  <!-- The header content -->
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <p class="lead mb-0">Banque de Données</p>
+        <h1 class="display-3">FRANCE</h1>
+        <p class="lead mb-0 fst-italic"><small>App développée avec Angular 2+</small></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Page section example for content below the video header -->
+<section class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <p>Dans cette application, retrouvez toutes les données géographiques à jour de la France</p>
+        <p>Rendez vous sur la page des <code>Régions</code> Pour pouvoir rechercher toutes les informations concernant les départements et les communes de chaque région de notre beau pays!</p>
+        <p class="mb-0">
+          Bachelor Degree 3eme année <a href="https://www.digital-campus.fr/" target="_blank">Digital Campus</a>
+        </p>
+        <p><small>TP Angular 2+ créé par Jean-Christophe RANGON, développeur free-lance et formateur full-stack</small></p>
+      </div>
+    </div>
+  </div>
+</section>

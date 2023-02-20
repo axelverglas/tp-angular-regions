@@ -1,0 +1,29 @@
+<table class="mt-5 table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Code</th>
+            <th>Code Region</th>
+            <th>Code Departement</th>
+            <th>Code Postal</th>
+            <th>Populations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let city of data | paginate: { itemsPerPage: 10, currentPage: page }">
+            <td>{{city.nom}}</td>
+            <td>{{city.code}}</td>
+            <td>{{city.codeDepartement}}</td>
+            <td>{{city.codeRegion}}</td>
+            <td>
+                <ul class="list-unstyled">
+                    <li *ngFor="let codePostal of city.codesPostaux">{{codePostal}}</li>
+                </ul>
+            </td>
+            <td>{{city.population}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="has-text-centered">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
