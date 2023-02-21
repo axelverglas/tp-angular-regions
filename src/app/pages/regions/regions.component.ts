@@ -56,7 +56,7 @@ export class RegionsComponent {
         this.toaster.success('Données récupérées avec succès');
       },
       (error) => {
-        this.loading = false;
+        this.loading = true;
         this.error = true;
         this.toaster.error('Erreur lors du chargement des données');
       }
@@ -79,7 +79,7 @@ export class RegionsComponent {
         this.toaster.success('Données récupérées avec succès');
       },
       (error) => {
-        this.loading = false;
+        this.loading = true;
         this.error = true;
         this.toaster.error('Erreur lors du chargement des données');
       }

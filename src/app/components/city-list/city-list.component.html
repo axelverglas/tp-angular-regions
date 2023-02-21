@@ -15,11 +15,7 @@
             <td>{{city.code}}</td>
             <td>{{city.codeDepartement}}</td>
             <td>{{city.codeRegion}}</td>
-            <td>
-                <ul class="list-unstyled">
-                    <li *ngFor="let codePostal of city.codesPostaux">{{codePostal}}</li>
-                </ul>
-            </td>
+            <td>{{city.codesPostaux.join()}}</td>
             <td>{{city.population}}</td>
         </tr>
     </tbody>
